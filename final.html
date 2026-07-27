@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Tangerine:wght@400;700&family=Pacifico&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Quicksand',sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+position:relative;
+
+background:none;
+
+color:#6b0e41;
+
+}
+
+/* ===== Blurred Background ===== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+/* Rename your couple photo as background.jpg */
+
+background:url("background.png") center center/cover no-repeat;
+
+filter:blur(8px);
+
+transform:scale(1.12);
+
+z-index:-2;
+
+}
+
+/* Pink Overlay */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(255,240,248,.35);
+
+z-index:-1;
+
+}
+
+.videoContainer{
+
+width:320px;
+height:570px;
+
+max-width:90vw;
+max-height:90vh;
+
+border-radius:30px;
+
+overflow:hidden;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(10px);
+
+box-shadow:0 0 60px rgba(255,255,255,.45);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+display:block;
+
+border-radius:30px;
+
+}
+
+.hitBtn{
+
+font-family:'Dancing Script',cursive;
+
+margin-top:20px;
+
+padding:18px 40px;
+
+font-size:22px;
+
+font-weight:bold;
+
+letter-spacing:.5px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(
+45deg,
+#ff69b4,
+#ffb3d9
+);
+
+box-shadow:0 0 30px rgba(255,105,180,.5);
+
+animation:pulse 1.5s infinite;
+
+transition:.3s;
+
+}
+
+.hitBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+#wishBox{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+background:rgba(255,255,255,.80);
+
+backdrop-filter:blur(18px);
+
+border-radius:35px;
+
+padding:35px;
+
+box-shadow:0 0 50px rgba(255,105,180,.25);
+
+color:#6b0e41;
+
+width:90%;
+
+animation:fadeIn 2s forwards;
+
+}
+
+#wishBox h1{
+
+font-family:'Tangerine',cursive;
+
+font-size:70px;
+
+font-weight:700;
+
+color:#d81b60;
+
+text-shadow:0 0 20px rgba(255,105,180,.15);
+
+}
+
+#wishBox h2{
+
+font-family:'Dancing Script',cursive;
+
+font-size:45px;
+
+font-weight:700;
+
+line-height:1.6;
+
+margin-top:15px;
+
+color:#8b1c5d;
+
+}
+
+#wishBox p{
+
+font-family:'Quicksand',sans-serif;
+
+font-size:35px;
+
+font-weight:600;
+
+margin-top:25px;
+
+color:#7a2045;
+
+}
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translate(-50%,-40%);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translate(-50%,-50%);
+
+}
+
+}
+
+.heart{
+
+position:fixed;
+
+pointer-events:none;
+
+animation:floatUp 8s linear forwards;
+
+}
+
+@keyframes floatUp{
+
+0%{
+
+transform:translateY(0);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+.sparkle{
+
+position:fixed;
+
+pointer-events:none;
+
+animation:sparkleAnim 3s linear forwards;
+
+}
+
+@keyframes sparkleAnim{
+
+0%{
+
+opacity:0;
+
+transform:scale(.5);
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:scale(1.5);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="videoContainer">
+
+<video
+id="birthdayVideo"
+controls
+autoplay>
+
+<source
+src="birthday.mp4"
+type="video/mp4">
+
+</video>
+
+</div>
+
+<button
+class="hitBtn"
+onclick="showWish()">
+
+💖 Nannu Kottu 💖
+
+</button>
+
+<div
+id="wishBox"
+class="hidden">
+
+<h1>
+
+🎂 HAPPY BIRTHDAY 🎂
+
+</h1>
+
+<h2>
+
+MY LOVE ❤️
+
+<br>
+
+MY HEARTBEAT ❤️
+
+<br>
+
+MY WIFE ❤️
+
+</h2>
+
+<p>
+
+HAPPY BIRTHDAY BUDDI 🎉
+
+<br><br>
+
+I LOVE U MUMMY ❤️
+
+</p>
+
+</div>
+
+<script>
+
+function showWish(){
+
+document.querySelector(".videoContainer").style.display="none";
+
+document.querySelector(".hitBtn").style.display="none";
+
+document.getElementById("wishBox").classList.remove("hidden");
+
+createHearts();
+
+createSparkles();
+
+}
+function createHearts(){
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML=
+["💖","💕","💗","💓","💘","💞","🎉"][Math.floor(Math.random()*7)];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.bottom="-50px";
+
+heart.style.fontSize=
+(25+Math.random()*30)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+},250);
+
+}
+
+function createSparkles(){
+
+setInterval(()=>{
+
+let sparkle=document.createElement("div");
+
+sparkle.classList.add("sparkle");
+
+sparkle.innerHTML=
+["✨","⭐","🌟"][Math.floor(Math.random()*3)];
+
+sparkle.style.left=
+Math.random()*100+"vw";
+
+sparkle.style.top=
+Math.random()*100+"vh";
+
+sparkle.style.fontSize=
+(20+Math.random()*30)+"px";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+
+sparkle.remove();
+
+},3000);
+
+},150);
+
+}
+
+</script>
+
+<audio
+id="bgMusic"
+loop>
+
+<source
+src="song.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<script src="music.js"></script>
+<script>
+
+/* ==============================
+   Premium Blur Background Effect
+   ============================== */
+
+window.addEventListener("load",()=>{
+
+const overlay=document.createElement("div");
+
+overlay.style.position="fixed";
+overlay.style.top="0";
+overlay.style.left="0";
+overlay.style.width="100%";
+overlay.style.height="100%";
+overlay.style.pointerEvents="none";
+
+overlay.style.background=
+"radial-gradient(circle at center, rgba(255,255,255,.08), rgba(255,182,193,.12), rgba(255,105,180,.18))";
+
+overlay.style.zIndex="-1";
+
+document.body.appendChild(overlay);
+
+});
+const bgMusic = document.getElementById("bgMusic");
+const video = document.getElementById("memoryVideo");
+
+video.addEventListener("play", () => {
+    bgMusic.pause();
+});
+
+video.addEventListener("ended", () => {
+    bgMusic.play().catch(() => {});
+});
+
+video.addEventListener("pause", () => {
+    if (video.currentTime < video.duration) {
+        bgMusic.play().catch(() => {});
+    }
+});
+
+/* ==============================
+   Small Zoom Animation
+   ============================== */
+
+document.body.animate(
+
+[
+{
+transform:"scale(1)"
+},
+{
+transform:"scale(1.02)"
+},
+{
+transform:"scale(1)"
+}
+],
+
+{
+duration:10000,
+iterations:Infinity
+}
+
+);
+
+</script>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script src="music.js"></script>
+
+</body>
+
+</html>

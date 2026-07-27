@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Tangerine:wght@400;700&family=Pacifico&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Quicksand',sans-serif;
+font-size:16px;
+font-weight:500;
+letter-spacing:0.3px;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+background: linear-gradient(135deg, #ffe6f0, #ffd4e8, #ffecf5);
+background-size: 400% 400%;
+color: #6b0e41;
+animation: bgMove 18s ease infinite;
+}
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* Blinking Heart Float Animation */
+
+@keyframes heartFloat{
+
+0%{
+transform:translateY(0) translateX(0) scale(1);
+opacity:1;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-100vh) translateX(100px) scale(0.5);
+opacity:0;
+}
+
+}
+
+@keyframes heartBlink{
+0%, 100%{ opacity: 1; }
+50%{ opacity: 0.3; }
+}
+
+.heart.blinking{
+animation: heartBlink 0.6s ease-in-out infinite, heartFloat 8s linear forwards !important;
+}
+
+/* Progress Bar */
+
+.progress{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:8px;
+
+background:
+linear-gradient(
+90deg,
+#ff69b4,
+#ffb3d9
+);
+
+}
+
+/* Common Glass */
+
+#mailSection,
+#passwordSection,
+#letterSection,
+#heartBreakSection{
+
+background:
+rgba(255,240,245,0.9);
+
+border:1px solid rgba(255,105,180,0.25);
+
+backdrop-filter:
+blur(18px);
+
+padding:40px;
+
+border-radius:30px;
+
+box-shadow:
+0 0 35px rgba(255,105,180,.18);
+
+text-align:center;
+
+width:90%;
+max-width:850px;
+}
+
+/* Hidden */
+
+.hidden{
+
+display:none;
+}
+
+/* Mail */
+
+#mailSection h1{
+
+font-family:'Great Vibes',cursive;
+font-size:120px;
+font-weight:700;
+letter-spacing:2px;
+
+animation:
+bounce 2s infinite;
+}
+
+@keyframes bounce{
+
+50%{
+transform:
+translateY(-15px);
+}
+
+}
+
+.mailBtn{
+
+margin-top:20px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+cursor:pointer;
+
+color:white;
+
+background:
+linear-gradient(
+45deg,
+#ff69b4,
+#ffb3d9
+);
+
+box-shadow:
+0 0 20px rgba(255,105,180,.3);
+}
+
+/* Password */
+
+#passwordSection h2{
+
+font-family:'Dancing Script',cursive;
+font-size:32px;
+font-weight:700;
+letter-spacing:0.5px;
+
+color:#ff69b4;
+
+margin-bottom:20px;
+}
+
+#passwordSection p{
+
+color:#6b0e41;
+
+margin-bottom:20px;
+}
+
+input{
+
+font-family:'Quicksand',sans-serif;
+width:80%;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+font-size:18px;
+font-weight:500;
+
+text-align:center;
+
+outline:none;
+background: rgba(255,255,255,0.8);
+color: #ff69b4;
+}
+
+.unlockBtn{
+
+font-family:'Dancing Script',cursive;
+font-weight:600;
+letter-spacing:0.5px;
+margin-top:20px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+color:white;
+
+background:
+linear-gradient(
+45deg,
+#ff69b4,
+#ffb3d9
+);
+}
+
+/* Letter */
+
+#letterSection h1{
+
+font-family:'Tangerine',cursive;
+font-size:52px;
+font-weight:700;
+letter-spacing:0.5px;
+
+color:#d81b60;
+text-shadow:0 4px 12px rgba(255,105,180,0.25);
+
+margin-bottom:25px;
+}
+
+.letter{
+
+max-height:350px;
+
+overflow:auto;
+
+padding:28px;
+
+background:
+rgba(255,241,247,0.95);
+
+border:1px solid rgba(255,105,180,0.25);
+
+box-shadow:
+0 0 30px rgba(255,105,180,0.12);
+
+border-radius:25px;
+
+text-align:left;
+
+line-height:2.1;
+
+font-family:'Quicksand',sans-serif;
+font-size:20px;
+
+color:#8b1c5d;
+}
+
+.btnGroup{
+
+margin-top:25px;
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+}
+
+.yesBtn{
+
+font-family:'Dancing Script',cursive;
+font-weight:600;
+letter-spacing:0.5px;
+padding:15px 30px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+color:white;
+
+background:
+linear-gradient(
+45deg,
+#ff69b4,
+#ffb3d9
+);
+
+box-shadow:
+0 0 20px rgba(255,105,180,.4);
+}
+
+.noBtn{
+
+font-family:'Dancing Script',cursive;
+font-weight:600;
+letter-spacing:0.5px;
+padding:15px 30px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#ff69b4;
+
+background:rgba(255,255,255,0.9);
+}
+
+/* Heart Break */
+
+.boy{
+
+font-size:120px;
+
+margin-bottom:20px;
+}
+
+.brokenHeart{
+
+font-size:120px;
+
+animation:
+breakHeart 1s infinite;
+}
+
+@keyframes breakHeart{
+
+50%{
+
+transform:
+scale(1.2)
+rotate(-10deg);
+
+}
+
+}
+
+#heartBreakSection h2{
+
+font-family:'Dancing Script',cursive;
+font-weight:600;
+letter-spacing:0.5px;
+color:#ff69b4;
+
+margin-bottom:20px;
+}
+
+#heartBreakSection p{
+
+font-family:'Quicksand',sans-serif;
+color:#6b0e41;
+
+line-height:1.8;
+
+font-size:20px;
+}
+
+/* Fade */
+
+.fadeIn{
+
+animation:
+fadeIn .8s forwards;
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+.finalBtn{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+color:white;
+
+background:
+linear-gradient(
+45deg,
+#ff69b4,
+#ffb3d9
+);
+
+box-shadow:
+0 0 20px rgba(255,105,180,.4);
+
+transition:.3s;
+
+animation:
+glow 2s infinite;
+}
+
+.finalBtn:hover{
+
+transform:
+scale(1.08);
+
+}
+.brokenHeart{
+
+font-size:120px;
+
+display:inline-block;
+
+animation:
+heartBreak 1s ease infinite;
+}
+
+@keyframes heartBreak{
+
+0%{
+
+transform:
+scale(1);
+
+}
+
+25%{
+
+transform:
+scale(1.2)
+rotate(-10deg);
+
+}
+
+50%{
+
+transform:
+scale(.8)
+rotate(10deg);
+
+}
+
+75%{
+
+transform:
+scale(1.2)
+rotate(-10deg);
+
+}
+
+100%{
+
+transform:
+scale(1);
+
+}
+
+}
+
+/* Love Theme Glow Effects */
+
+@keyframes glowPulse{
+
+0%, 100%{
+text-shadow: 
+0 0 10px rgba(255,20,147,0.5),
+0 0 20px rgba(255,105,180,0.3);
+}
+
+50%{
+text-shadow: 
+0 0 20px rgba(255,20,147,0.8),
+0 0 40px rgba(255,105,180,0.6),
+0 0 60px rgba(255,20,147,0.4);
+}
+
+}
+
+@keyframes buttonGlow{
+
+0%, 100%{
+box-shadow: 0 0 20px rgba(255,20,147,.5);
+}
+
+50%{
+box-shadow: 0 0 40px rgba(255,105,180,.8), 0 0 60px rgba(255,20,147,.4);
+}
+
+}
+
+h1, h2, h3{
+font-family:'Satisfy',cursive;
+font-weight:700;
+letter-spacing:0.5px;
+font-size:1.2em;
+}
+
+h1{
+font-family:'Tangerine',cursive;
+font-weight:700;
+font-size:3.5em;
+color:#ff69b4;
+}
+
+h1, h2{
+animation: glowPulse 3s ease-in-out infinite;
+}
+
+button, .mailBtn, .unlockBtn, .yesBtn, .nextBtn, .loveBtn{
+font-family:'Dancing Script',cursive;
+font-size:18px;
+font-weight:600;
+letter-spacing:0.5px;
+animation: buttonGlow 2.5s ease-in-out infinite;
+}
+
+/* Heart Bubble Enhancement */
+
+.heart, .floatHeart{
+filter: drop-shadow(0 0 8px rgba(255,105,180,0.6));
+}
+
+/* Sparkle Star Animation */
+
+@keyframes sparkleShine{
+0%, 100%{ opacity: 0.5; }
+50%{ opacity: 1; }
+}
+
+.sparkle{
+animation: sparkleShine 1s ease-in-out infinite;
+}

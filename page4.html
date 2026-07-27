@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page 4 - Balloon Surprise 🎈</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Tangerine:wght@400;700&family=Pacifico&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Quicksand',sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background: linear-gradient(135deg, #ffe6f0, #ffd4e8, #fff0f9);
+background-size:400% 400%;
+color: #6b0e41;
+
+animation:
+gradientMove 10s ease infinite;
+
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.progress{
+
+position:fixed;
+
+top:0;
+left:0;
+
+height:8px;
+
+width:40%;
+
+background:#ff1493;
+
+z-index:999;
+}
+
+.container{
+
+width:90%;
+max-width:900px;
+
+padding:40px;
+
+text-align:center;
+
+background:
+rgba(255,245,250,0.95);
+
+border:
+1px solid rgba(255,105,180,.22);
+
+backdrop-filter:
+blur(24px);
+
+border-radius:30px;
+
+box-shadow:
+0 8px 32px rgba(255,105,180,.18);
+
+}
+
+h1{
+
+font-family:'Tangerine',cursive;
+color:#ff69b4;
+font-weight:700;
+letter-spacing:0.5px;
+margin-bottom:15px;
+
+font-size:2.5rem;
+}
+
+p{
+
+font-family:'Quicksand',sans-serif;
+font-size:1.2rem;
+font-weight:500;
+
+color:#6b0e41;
+
+margin-bottom:20px;
+}
+
+.balloon-area{
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-end;
+
+gap:30px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+}
+
+.item{
+
+position:relative;
+
+width:150px;
+height:220px;
+}
+
+.word{
+
+position:absolute;
+
+top:80px;
+left:50%;
+
+transform:
+translateX(-50%);
+
+font-size:30px;
+
+font-weight:bold;
+
+color:#ff1493;
+
+display:none;
+
+animation:
+wordReveal .6s ease;
+}
+
+@keyframes wordReveal{
+
+from{
+opacity:0;
+transform:
+translateX(-50%)
+scale(.5);
+}
+
+to{
+opacity:1;
+transform:
+translateX(-50%)
+scale(1);
+}
+
+}
+
+.balloon{
+
+font-size:120px;
+
+cursor:pointer;
+
+transition:.3s;
+
+user-select:none;
+}
+
+.balloon:hover{
+
+transform:
+scale(1.1);
+}
+
+.pop{
+
+animation:
+pop .4s forwards;
+}
+
+@keyframes pop{
+
+100%{
+
+opacity:0;
+
+transform:
+scale(2);
+
+}
+
+}
+
+#finalMessage{
+
+margin-top:40px;
+
+font-size:3rem;
+
+font-weight:bold;
+
+color:#ff1493;
+
+min-height:80px;
+
+animation:
+pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.05);
+}
+
+}
+
+.heart{
+
+position:absolute;
+
+font-size:30px;
+
+pointer-events:none;
+
+animation:
+floatHeart 8s linear forwards;
+}
+
+@keyframes floatHeart{
+
+0%{
+
+transform:
+translateY(100vh);
+
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+
+transform:
+translateY(-120vh);
+
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="progress"></div>
+
+<div class="container">
+
+<h1>
+🎈 Balloon Surprise 🎈
+</h1>
+
+<p>
+
+Pop all balloons
+to reveal a secret message 💖
+
+</p>
+
+<div class="balloon-area">
+
+<div class="item">
+
+<div class="word">
+I
+</div>
+
+<div class="balloon"
+onclick="popBalloon(this)">
+🎈
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="word">
+LOVE
+</div>
+
+<div class="balloon"
+onclick="popBalloon(this)">
+🎈
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="word">
+U
+</div>
+
+<div class="balloon"
+onclick="popBalloon(this)">
+🎈
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="word">
+MUMMY
+</div>
+
+<div class="balloon"
+onclick="popBalloon(this)">
+🎈
+</div>
+
+</div>
+
+</div>
+
+<div id="finalMessage"></div>
+
+</div>
+
+<script>
+
+let popped=0;
+
+function popBalloon(balloon){
+
+if(
+balloon.classList.contains(
+"done"
+)
+)
+return;
+
+balloon.classList.add(
+"done"
+);
+
+balloon.classList.add(
+"pop"
+);
+
+let word=
+
+balloon
+.previousElementSibling;
+
+word.style.display=
+"block";
+
+createHearts();
+
+popped++;
+
+if(popped===4){
+
+setTimeout(()=>{
+
+document
+.getElementById(
+"finalMessage"
+)
+.innerHTML=
+
+"💖 I LOVE U MUMMY 💖";
+
+setTimeout(()=>{
+
+window.location.href=
+"page5.html";
+
+},4000);
+
+},500);
+
+}
+
+}
+
+function createHearts(){
+
+for(let i=0;i<8;i++){
+
+let heart=
+document.createElement("div");
+
+heart.classList.add(
+"heart"
+);
+
+heart.innerHTML=
+["💖","💕","💗","💓"][Math.floor(Math.random()*4)];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(20+Math.random()*20)+"px";
+
+document.body.appendChild(
+heart
+);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+}
+
+}
+
+setInterval(()=>{
+
+let heart=
+document.createElement("div");
+
+heart.classList.add(
+"heart"
+);
+
+heart.innerHTML=
+["💖","💕","💗","💓"][Math.floor(Math.random()*4)];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+document.body.appendChild(
+heart
+);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+},1200);
+
+</script>
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script src="music.js"></script>
+</body>
+</html>
+```
